@@ -85,24 +85,23 @@
 
 <script>
     const phone = '13381817597'
-    const wxpusherAppToken = 'AT_rc6Ipfy6tA7K3iAbu1y446NkteJn9uis'
-    const wxpusherUIDs = ['UID_idjHT4qLEF9LwZqB9rqTMxEMQlAI']
+    const pushKey = 'HvG6iQipGXmvdRPFGHgFtZ'
 
-    // 调用 Wxpusher API 来发送挪车通知
     function notifyOwner() {
-        fetch("https://wxpusher.zjiecode.com/api/send/message", {
+        fetch(`https://api.day.app/${pushKey}`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                appToken: wxpusherAppToken,
-                content: "您好，有人需要您挪车，请及时处理。",
-                contentType: 1,
-                uids: wxpusherUIDs
+                "title": "挪车通知",
+                "call": 1,
+                "sound": "minuet",
+                "group": "挪车",
+                "level": "critical"
             })
         })
             .then(response => response.json())
             .then(data => {
-                if (data.code === 1000) {
+                if (data.code === 200) {
                     alert("通知已发送！");
                 } else {
                     alert("通知发送失败，请稍后重试。");
