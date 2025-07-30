@@ -105,7 +105,7 @@
         if (messageContainer.classList.contains('show')) {
             toggleBtn.innerHTML = '<i class="fa fa-chevron-up mr-2"></i> 点击上方通知按钮';
         } else {
-            toggleBtn.innerHTML = '<i class="fa fa-comment-o mr-2"></i> ${remark}';
+            toggleBtn.innerHTML = `<i class="fa fa-comment-o mr-2"></i> ${remark}`;
         }
     });
 
@@ -123,7 +123,7 @@
               if (buttonId === "notifyBtn") {
                   button.innerHTML = '<i class="fa fa-bell mr-2"></i> 通知车主挪车';
               } else if (buttonId === "toggleMessageBtn") {
-                  button.innerHTML = '<i class="fa fa-comment-o mr-2"></i> ${remark}';
+                  button.innerHTML = `<i class="fa fa-comment-o mr-2"></i> ${remark}`;
               } else {
                   button.innerHTML = '<i class="fa fa-phone mr-2"></i> 直接拨打电话';
               }
@@ -176,7 +176,7 @@
 
                       // 收起展开的输入框
                       document.getElementById('messageContainer').classList.remove('show');
-                      document.getElementById('toggleMessageBtn').innerHTML = '<i class="fa fa-comment-o mr-2"></i> ${remark}';
+                      document.getElementById('toggleMessageBtn').innerHTML = `<i class="fa fa-comment-o mr-2"></i> ${remark}`;
 
                       canSendNotification = false;
                       let countdown = notificationCooldown;
