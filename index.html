@@ -44,13 +44,13 @@
             <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white mb-4 shadow-md">
                 <i class="fa fa-car text-2xl"></i>
             </div>
-            <h1 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-gray-800">通知车主挪车</h1>
+            <h1 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-gray-800">超级无敌🐂🍺挪车码</h1>
         </div>
 
         <div class="space-y-4 mb-8">
             <div class="bg-blue-50 p-4 rounded-lg flex items-center border border-blue-100">
                 <i class="fa fa-info-circle text-blue-600 mr-3"></i>
-                <p class="text-gray-700">您可放心使用下方功能，无病毒，代码为个人开发。</p>
+                <p class="text-gray-700">请放心使用下方功能，个人开发。</p>
             </div>
         </div>
 
@@ -66,11 +66,11 @@
 
         <!-- 隐蔽的附加功能区域 - 视觉上与主要功能区分开 -->
         <div class="mt-8 pt-6 border-t border-gray-100 space-y-3">
-            <p class="text-xs text-gray-500 mb-2">其他功能</p>
+            <p class="text-xs text-gray-500 mb-2">社恐专用</p>
 
             <!-- 留言功能 - 默认隐藏 -->
             <button id="toggleMessageBtn" class="w-full secondary-btn font-medium py-2.5 px-4 rounded-lg flex items-center justify-center btn-hover text-sm">
-                <i class="fa fa-comment-o mr-2"></i> 如联系不上请留言
+                <i class="fa fa-comment-o mr-2"></i>
             </button>
 
             <div id="messageContainer" class="expandable-container px-1">
@@ -91,7 +91,8 @@
     const notificationCooldown = 10;
     const phone = '13381817597'
     const pushKey = 'HvG6iQipGXmvdRPFGHgFtZ'
-    
+    const remark = '如联系不上请留言'
+    document.getElementById('toggleMessageBtn').innerHTML = `<i class="fa fa-comment-o mr-2"></i> ${remark}`
 
     // 留言框显示/隐藏切换
     document.getElementById('toggleMessageBtn').addEventListener('click', function() {
@@ -104,7 +105,7 @@
         if (messageContainer.classList.contains('show')) {
             toggleBtn.innerHTML = '<i class="fa fa-chevron-up mr-2"></i> 点击上方通知按钮';
         } else {
-            toggleBtn.innerHTML = '<i class="fa fa-comment-o mr-2"></i> 如联系不上请留言';
+            toggleBtn.innerHTML = '<i class="fa fa-comment-o mr-2"></i> ${remark}';
         }
     });
 
@@ -122,7 +123,7 @@
               if (buttonId === "notifyBtn") {
                   button.innerHTML = '<i class="fa fa-bell mr-2"></i> 通知车主挪车';
               } else if (buttonId === "toggleMessageBtn") {
-                  button.innerHTML = '<i class="fa fa-comment-o mr-2"></i> 如联系不上请留言';
+                  button.innerHTML = '<i class="fa fa-comment-o mr-2"></i> ${remark}';
               } else {
                   button.innerHTML = '<i class="fa fa-phone mr-2"></i> 直接拨打电话';
               }
@@ -175,7 +176,7 @@
 
                       // 收起展开的输入框
                       document.getElementById('messageContainer').classList.remove('show');
-                      document.getElementById('toggleMessageBtn').innerHTML = '<i class="fa fa-comment-o mr-2"></i> 如联系不上请留言';
+                      document.getElementById('toggleMessageBtn').innerHTML = '<i class="fa fa-comment-o mr-2"></i> ${remark}';
 
                       canSendNotification = false;
                       let countdown = notificationCooldown;
