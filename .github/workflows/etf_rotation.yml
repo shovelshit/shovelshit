@@ -1,0 +1,30 @@
+name: ETF轮动策略 - 每周五信号
+
+on:
+  schedule:
+    # 每周五北京时间 15:30（收盘后）= UTC 07:30
+    - cron: '30 7 * * 5'
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  etf-rotation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install akshare pandas
+
+      - name: Run backtest
+        run: python artifacts/rotation_backtest.py
+
+      - name: Run signal
+        run: python artifacts/rotation_signal.py
