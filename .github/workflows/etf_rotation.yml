@@ -24,7 +24,7 @@ jobs:
           pip install akshare pandas
 
       - name: Run backtest
-        run: python artifacts/rotation_backtest.py
+        run: python etf/rotation_backtest.py
 
       - name: Run signal
-        run: python artifacts/rotation_signal.py
+        run: python etf/rotation_signal.py
