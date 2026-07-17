@@ -27,4 +27,6 @@ jobs:
         run: python etf/rotation_backtest.py
 
       - name: Run signal
+        env:
+          BARK_KEY: ${{ secrets.BARK_KEY }}
         run: python etf/rotation_signal.py
